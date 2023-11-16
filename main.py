@@ -1,7 +1,5 @@
 import keys
 import spotipy
-import requests
-from pprint import pprint
 from spotipy.oauth2 import SpotifyClientCredentials
 from pytube import Search, YouTube
 
@@ -41,7 +39,7 @@ def get_isrc_id(test_id):
 
 
 
-# pprint(get_tracks())
+# print(get_tracks())
 tracks = get_tracks()
 test_id = tracks[0][1]
 isrc_id = get_isrc_id(test_id)
