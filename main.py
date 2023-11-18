@@ -4,7 +4,7 @@ from spotipy.oauth2 import SpotifyClientCredentials
 from pytube import Search, YouTube
 
 
-user_name = 'Shiv'
+user_name = keys.USER_NAME
 client_id = keys.CLIENT_ID
 client_Secret = keys.SECRET_KEY
 redirect_uri = 'http://google.com/callback/' 
