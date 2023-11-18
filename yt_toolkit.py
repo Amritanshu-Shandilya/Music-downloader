@@ -1,5 +1,6 @@
 from pytube import Search, YouTube
 import sys
+import shutil
 
 class Youtube_Toolkit:
     def __init__(self):
@@ -9,6 +10,12 @@ class Youtube_Toolkit:
 
         self.video_name = None
         self.is_success = False
+
+        # Replace it if on another system
+        self.CURRENT_LOC = r'C:\Users\Shiv\Music-downloader'
+        # Replace it to change where the code is stored
+        self.DESTINATION = r'C:\Users\Shiv\Music'
+
 
     def generate_vid_id(self):
     # Generates Video Id for the avaialble isrc code
@@ -49,13 +56,18 @@ class Youtube_Toolkit:
         # Display a success message
         self.is_success = True
 
+        # Moving the audio to  Music directory in PC
+        file_loc = self.CURRENT_LOC + '\\' +self.video_name + '.mp3'
+        # print(file_loc)
+        shutil.move (file_loc, self.DESTINATION)
+
     def cli_callback(self):
         self.vid_id = sys.argv[1]
         self.download_the_song()
 
     def display_success_msg(self):
         if self.is_success:
-            print(self.video_name + " Downloaded!")
+            print(self.video_name + " Downloaded and moved to the specified destination!")
             self.is_success = False
         else:
             print("Song Could not be Downloaded!")
