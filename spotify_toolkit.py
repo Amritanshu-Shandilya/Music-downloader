@@ -6,6 +6,12 @@ from pytube import Search, YouTube
 import keys
 from yt_toolkit import Youtube_Toolkit
 
+# Custom exception
+class UnexpectedRendererException(Exception):
+    # Raised when Unexpected renderer encountered
+    pass
+
+
 class Spotify_Toolkit(Youtube_Toolkit):
 # This class inherits Youtube_Toolkit that gives it functions to download songs, so it just needs to work with spoitfy side of things
     def __init__(self):
@@ -44,13 +50,22 @@ class Spotify_Toolkit(Youtube_Toolkit):
             result = track_name, track_uri.split(':')[2]
             self.tracks.append(result)
 
-    def vid_id(self, track_uri):
+    def get_vid_id(self, track_uri):
     # Converts track_uri to video id
         data = self.spotify_obj.track(track_uri)
         self.isrc_code = data['external_ids']['isrc']
-        search_obj = Search(self.isrc_id)
+        search_obj = Search(self.isrc_code)
+        # print(type(search_obj.results))
         # generating video id
-        self.vid_id = str(search_obj.results).split('=')[1].rstrip('>]')
+        try:
+            if not search_obj.results == False:
+                self.vid_id = str(search_obj.results[0]).split('=')[1].rstrip('>]')
+                print(self.vid_id)
+        except IndexError :
+            print("Skipped one thing!")
+        except UnexpectedRendererException:
+            print("Something weird happenned!")
+
 
         
         
@@ -59,7 +74,8 @@ class Spotify_Toolkit(Youtube_Toolkit):
         for track in self.tracks:
             track_name = track[0]
             track_uri = track[1]
-            
+            self.vid_id = self.get_vid_id(track_uri)
+            # print(track_name+' : '+str(self.vid_id))
 
 
 
@@ -72,7 +88,7 @@ def main():
     spotify_toolkit.get_tracks()
     spotify_toolkit.create_the_dict()
     # print(spotify_toolkit.tracks)
-    print(spotify_toolkit.song_data)
+    # print(spotify_toolkit.song_data)
     # print(spotify_toolkit.get_isrc_id('5XeFesFbtLpXzIVDNQP22n'))
     
 
