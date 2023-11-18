@@ -1,31 +1,33 @@
 # Music Downloader
 
-This project is built for those who, like me, are frustrated from ads on music streaming apps and/or want to stop paying money to listening add-free music on music streaming apps. This project works by downloading the songs from your `you-know-what-ify` playlist into your own local storage, so you can listen to them anytime without any ads and without spending any money to get any kind of premium subscription.
+This project is built for those who, like me, are frustrated from ads on music streaming apps and/or want to stop paying money to listening add-free music on music streaming apps. This project works by downloading the songs from your youtube into your own local storage, so you can listen to them anytime without any ads and without spending any money to get any kind of premium subscription.
 
 *I will add installation instructions when its beyond v1.0*
 
-## Current-version -> **v1.0.2**
-Currently it is in *version 1.0.2* where you can download a single song (the first one) from your playlist made on `you-know-what-ify`. 
+## Current-version -> **v1.1.3**
+Currently it is in *version 1.1.3* where you can download a single song (the first one) from it's youtube id. 
 
 ## Requirements:
-- A `you-know-what-ify` developer account
-- A `you-know-what-ify` music bot
+Nothing special yet except for python
   
 
 #### Python library dependencies: 
 (Clicking on these hyperlinks will take you to the documentation page of these libraries)
-  1. [spotipy](https://spotipy.readthedocs.io/en/2.22.1/#)
-  2. [pytube](https://pytube.io/en/latest/user/quickstart.html)
-   
+  1. [pytube](https://pytube.io/en/latest/user/quickstart.html) -> For downloading audio files from youtube
+  2. sys -> for accepting command line arguments
+  
+
 ## v1.0
-This version at it's current state, as stated earlier, is a proof of concept for this idea. So right now it can download only a single song from a playlist, the first one to be exact, and save it in the Present Working Directory - besides the python code that downloaded it.
+This version, as stated earlier, was a proof of concept for this idea. So right now it can download only a single song from a playlist, the first one to be exact, and save it in the Present Working Directory - besides the python code that downloaded it.
+
+## v1.1
+This version, downloads song's audio using its youtube id.
 
 ## Action-Plan :
 Suggested improvements in future versions. This is not final and can change if it needs to be
 #### Improvements to be made in v1 -
 1. Change the code structure to make it more efficient
-2. Download whole playlist at a time
-3. Support downloading songs from multiple playlists
+2. Store the downloaded songs in a predefined folder
 
 #### Improvements for v2 -  
 1. Add an option to save music to an external drive like a SD card or a USB pendrive, and not in the current folder.
@@ -56,7 +58,9 @@ A lsit of changes made in all commits/versions.
 - **v1.0.1 ->** Base commit, pushed the code for downloading audio files.
 - **v1.0.1 ->** The first working code that downloads a single song
 - **v1.0.2 ->** Removed unused libraries, and wrote this readme
-- **v1.0.3 ->** *Work in Progress*
+- **v1.0.3 ->** Made the code Object-oriented
+- **v1.1.3 ->** Removed spotipy as it was error prone, fixed some minor mistakes and updated this readme
+- **v1.2.0 ->** *Work in progress*
 
 
 ## Contributors :
