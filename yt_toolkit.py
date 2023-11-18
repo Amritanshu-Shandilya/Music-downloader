@@ -94,7 +94,7 @@ def main():
 # For downloading songs using Command_line
     yt_toolkit = Youtube_Toolkit()
     yt_toolkit.cli_callback()
-    pass  
+    yt_toolkit.display_success_msg()
 
 
 
