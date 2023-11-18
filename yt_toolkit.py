@@ -1,4 +1,5 @@
 from pytube import Search, YouTube
+import sys
 
 class Youtube_Toolkit:
     def __init__(self):
@@ -6,6 +7,7 @@ class Youtube_Toolkit:
         self.vid_id = None
         self.isrc_code = None
 
+        self.video_name = None
         self.is_success = False
 
     def generate_vid_id(self):
@@ -27,12 +29,14 @@ class Youtube_Toolkit:
     # Used in case isrc_code is not available for any song and vid_id will be directly feeded 
         self.vid_id = vid_id
 
+
     def download_the_song(self):
     # Once the vid_id is available or is generated, this function uses it to download the song
         # Create the youtube link for the song
         yt_link = self.yt_query + self.vid_id
         # Search the song using the link
         yt_object = YouTube(yt_link)
+        self.video_name = yt_object.title
         # Filter yt_object to extract the audio format song
         stream = str(yt_object.streams.filter(mime_type='audio/mp4')[0])
         #Extract the tag_id from the object
@@ -45,16 +49,20 @@ class Youtube_Toolkit:
         # Display a success message
         self.is_success = True
 
+    def cli_callback(self):
+        self.vid_id = sys.argv[1]
+        self.download_the_song()
+
     def display_success_msg(self):
         if self.is_success:
-            print("Audio Downloaded!")
+            print(self.video_name + " Downloaded!")
             self.is_success = False
         else:
             print("Song Could not be Downloaded!")
             self.is_success = False
         
 
-def main():
+def unit_test():
 # A simple unit test
     # Sample data:
     VID_ID = ['5clR_JZdZ-k']
@@ -81,9 +89,14 @@ def main():
             if check == 'y':
                 print("Successfully completed the unit test")
 
-    
+
+def main():
+# For downloading songs using Command_line
+    yt_toolkit = Youtube_Toolkit()
+    yt_toolkit.cli_callback()
+    pass  
 
 
 
 if __name__ == '__main__':
-    main()
+    unit_test()
