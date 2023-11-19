@@ -1,6 +1,6 @@
 from pytube import Search, YouTube
 import sys
-import shutil
+import os.path
 
 class Youtube_Toolkit:
     def __init__(self):
@@ -43,7 +43,7 @@ class Youtube_Toolkit:
         yt_link = self.yt_query + self.vid_id
         # Search the song using the link
         yt_object = YouTube(yt_link)
-        self.video_name = yt_object.title
+        self.video_name = yt_object.title+'.mp4'
         # Filter yt_object to extract the audio format song
         stream = str(yt_object.streams.filter(mime_type='audio/mp4')[0])
         #Extract the tag_id from the object
@@ -57,9 +57,16 @@ class Youtube_Toolkit:
         self.is_success = True
 
         # Moving the audio to  Music directory in PC
-        file_loc = self.CURRENT_LOC + '\\' +self.video_name + '.mp3'
-        # print(file_loc)
-        shutil.move (file_loc, self.DESTINATION)
+        file_loc = self.CURRENT_LOC + '\\' +self.video_name
+        destination = self.DESTINATION + '\\'+self.video_name
+        #print(file_loc)
+        try:
+            found = os.path.exists(file_loc)
+            if found == True:
+                os.rename(file_loc, destination)
+                print("File saved in music directory!")
+        except FileNotFoundError:
+            print("Could not locate the song!")
 
     def cli_callback(self):
         self.vid_id = sys.argv[1]
@@ -67,7 +74,7 @@ class Youtube_Toolkit:
 
     def display_success_msg(self):
         if self.is_success:
-            print(self.video_name + " Downloaded and moved to the specified destination!")
+            print(self.video_name + " Downloaded!")
             self.is_success = False
         else:
             print("Song Could not be Downloaded!")
