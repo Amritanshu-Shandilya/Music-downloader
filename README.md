@@ -31,6 +31,7 @@ Suggested improvements in future versions. This is not final and can change if i
 #### Improvements to be made in v1 -
 1. Change the code structure to make it more efficient
 2. Store the downloaded songs in a predefined folder
+3. Make it able to download more than one song. 
 
 #### Improvements for v2 -  
 1. Add an option to save music to an external drive like a SD card or a USB pendrive, and not in the current folder.
@@ -56,7 +57,7 @@ Suggested improvements in future versions. This is not final and can change if i
 5. Make a dedicated app.
    
 ## Changelog
-A lsit of changes made in all commits/versions.
+A list of changes made in all commits/versions.
 ### v1.0 :
 - **v1.0.1 ->** Base commit, pushed the code for downloading audio files.
 - **v1.0.1 ->** The first working code that downloads a single song
