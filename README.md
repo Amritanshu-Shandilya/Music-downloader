@@ -4,8 +4,8 @@ This project is built for those who, like me, are frustrated from ads on music s
 
 *I will add installation instructions when its beyond v1.0*
 
-## Current-version -> **v1.1.3**
-Currently it is in *version 1.1.3* where you can download a single song (the first one) from it's youtube id. 
+## Current-version -> **v1.2.1**
+Currently it is in *version 1.2.1* where you can download a single song (the first one) from it's youtube id through the command line and it will be stored inside the predefined location.
 
 ## Requirements:
 Nothing special yet except for python
@@ -21,7 +21,10 @@ Nothing special yet except for python
 This version, as stated earlier, was a proof of concept for this idea. So right now it can download only a single song from a playlist, the first one to be exact, and save it in the Present Working Directory - besides the python code that downloaded it.
 
 ## v1.1
-This version, downloads song's audio using its youtube id.
+This version, downloads song's audio using its youtube id in the same folder where the code is located.
+
+## v1.2
+This version, downloads the song in mp4 audio format and stores it inside a pre mentioned location. It is downloading the song almost all of the time but it is not saving all songs in the specified folder.
 
 ## Action-Plan :
 Suggested improvements in future versions. This is not final and can change if it needs to be
@@ -60,7 +63,8 @@ A lsit of changes made in all commits/versions.
 - **v1.0.2 ->** Removed unused libraries, and wrote this readme
 - **v1.0.3 ->** Made the code Object-oriented
 - **v1.1.3 ->** Removed spotipy as it was error prone, fixed some minor mistakes and updated this readme
-- **v1.2.0 ->** *Work in progress*
+- **v1.2.1 ->** Added code to store song inside the Music folder inside the C://
+- **v1.2.2 ->** *Work in Progress*
 
 
 ## Contributors :
