@@ -8,13 +8,27 @@ This project is built for those who, like me, are frustrated from ads on music s
 Currently it is in *version 1.2.1* where you can download a single song (the first one) from it's youtube id through the command line and it will be stored inside the predefined location.
 
 ## Requirements:
-Nothing special yet except for python
-  
 
-#### Python library dependencies: 
+## Important note:
+### Storing songs in a specified folder :
+By default the songs will be stored in the same folder where the code is (Just remove the code for this which I will comment) for storing the songs at another location. 
+
+I am making this project in a way that the songs can be stored inside a specified directory in the desktop as this can be used to do aweosme stuff like making albums, playlists then even generating song recommendations and all. 
+
+To make all this work, I am writing a function that will allow songs to be downloaded only when that folder (or external storage) device is available. There are many libraries suitable for this and I will be using either [`pyusb`](https://libusb.info/) or [`usb-monitor`](https://pypi.org/project/usb-monitor/#:~:text=USBMonitor%20is%20an%20easy%2Dto,platform%2Dspecific%20details%20or%20incompatibilities.). 
+
+Now, to make these libraries find if our external storage device is connected or not, we need some special information about the device : it's `vendor_id` and `product_id`.
+
+### Finding product_id and vendor_id:
+#### For Windows :
+#### For Linux :
+#### For MacOS :
+
+## Python library dependencies: 
 (Clicking on these hyperlinks will take you to the documentation page of these libraries)
   1. [pytube](https://pytube.io/en/latest/user/quickstart.html) -> For downloading audio files from youtube
   2. sys -> for accepting command line arguments
+  3. pyusb -> for external storage drive recognition
   
 
 ## v1.0
