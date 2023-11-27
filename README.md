@@ -4,7 +4,7 @@ This project is built for those who, like me, are frustrated from ads on music s
 
 *I will add installation instructions when its beyond v1.0*
 
-## Current-version -> **v1.2.1**
+## Current-version -> **v1.2.2**
 Currently it is in *version 1.2.1* where you can download a single song (the first one) from it's youtube id through the command line and it will be stored inside the predefined location.
 
 ## Requirements:
