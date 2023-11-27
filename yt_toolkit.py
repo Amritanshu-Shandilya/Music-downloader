@@ -11,12 +11,7 @@ class Youtube_Toolkit:
         self.video_name = None
         self.is_success = False
 
-        # Replace it if on another system
-        self.CURRENT_LOC = r'C:\Users\Shiv\Music-downloader'
-        # Replace it to change where the code is stored
-        self.DESTINATION = r'C:\Users\Shiv\Music'
-
-
+        
     def generate_vid_id(self):
     # Generates Video Id for the avaialble isrc code
         search_object = Search(self.isrc_code)
@@ -56,18 +51,7 @@ class Youtube_Toolkit:
         # Display a success message
         self.is_success = True
 
-        # Moving the audio to  Music directory in PC
-        file_loc = self.CURRENT_LOC + '\\' +self.video_name
-        destination = self.DESTINATION + '\\'+self.video_name
-        #print(file_loc)
-        try:
-            found = os.path.exists(file_loc)
-            if found == True:
-                os.rename(file_loc, destination)
-                print("File saved in music directory!")
-        except FileNotFoundError:
-            print("Could not locate the song!")
-
+       
     def cli_callback(self):
         self.vid_id = sys.argv[1]
         self.download_the_song()
@@ -118,4 +102,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    unit_test()
