@@ -1,4 +1,7 @@
-from pytube import Search, YouTube
+try:
+    from pytube import Search, YouTube
+except ModuleNotFoundError:
+    print("Install pytube : pip install pytube")
 import sys
 import os.path
 
