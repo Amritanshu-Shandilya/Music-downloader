@@ -5,6 +5,9 @@ from os.path import splitext, exists, join
 from shutil import move
 from time import sleep
 
+import subprocess
+import sys
+
 try:
     from watchdog.events import FileSystemEventHandler
     from watchdog.observers import Observer
@@ -73,7 +76,13 @@ class music_management (Youtube_Toolkit, FileSystemEventHandler):
                 if name.endswith('mp4') or name.endswith('MP4'):
                     self.move_the_file(name)
 
-                
+
+    def download_from_id(self,id):
+        self.initialise_vid_id(id)
+        self.download_the_song()
+        self.display_success_msg()
+        self.check_audio_files()
+        self.reset()
 
         
     def download_from_a_list(self, filepath):
@@ -98,7 +107,11 @@ def unit_test():
 
 def main():
     main_obj = music_management()
+    vid_link = sys.argv[1]
+    vid_id = vid_link.split('v=')[1]
+    main_obj.usb_detection()
+    main_obj.download_from_id(vid_id)
     
 
 if __name__ == '__main__':
-    unit_test()
+    main()
