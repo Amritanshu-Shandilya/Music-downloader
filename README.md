@@ -29,6 +29,7 @@ Now, to make these libraries find if our external storage device is connected or
   1. [pytube](https://pytube.io/en/latest/user/quickstart.html) -> For downloading audio files from youtube
   2. sys -> for accepting command line arguments
   3. pyusb -> for external storage drive recognition
+  4. watchdog -> detecting new files in the source folder
   
 
 ## v1.0
