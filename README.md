@@ -79,7 +79,7 @@ A list of changes made in all commits/versions.
 - **v1.0.3 ->** Made the code Object-oriented
 - **v1.1.3 ->** Removed spotipy as it was error prone, fixed some minor mistakes and updated this readme
 - **v1.2.1 ->** Added code to store song inside the Music folder inside the C://
-- **v1.2.2 ->** *Work in Progress*
+- **v1.2.2 ->** 100% succesful shifting of the music from one folder to another
 
 
 ## Contributors :
