@@ -34,10 +34,10 @@ class music_management (Youtube_Toolkit, FileSystemEventHandler):
         # Paths
         self.source = self.src = r'C:\Users\Shiv\Music-downloader'
         self.destinaton  = None
-        self.des = None
+        
 
         
-        self.default_destination = r'C:\Users\Shiv\Music'
+        self.des = self.default_destination = r'C:\Users\Shiv\Music'
 
         """Replace with your drive's details"""
         self.idVendor = None
@@ -46,22 +46,14 @@ class music_management (Youtube_Toolkit, FileSystemEventHandler):
     def reset(self):
         # Resets the source and destination
         self.source = self.src
-        self.destinaton = self.des
+        self.default_destination = self.des
     
-    def usb_detection(self):
-        # Finding the drive
-        if USB_PRESENCE:
-            # Specify the path inside the USB
-            self.destinaton = None
-        else:
-            # Use default location
-            self.destinaton = self.des = self.default_destination
 
     def move_the_file(self, name):
         self.video_name = name
         # Creating the absolute path to the file
         self.source = self.source + '\\' +self.video_name
-        self.destinaton = self.destinaton + '\\'+self.video_name
+        self.destinaton = self.default_destination + '\\'+self.video_name
         move(self.source, self.destinaton)
         print('Moved the song to the destination!')
         
@@ -107,10 +99,19 @@ def unit_test():
 
 def main():
     main_obj = music_management()
-    vid_link = sys.argv[1]
-    vid_id = vid_link.split('v=')[1]
-    main_obj.usb_detection()
-    main_obj.download_from_id(vid_id)
+    print("Please keep pasting the links of the songs you want to download here")
+    CONTINUE = True
+    while CONTINUE:
+        vid_link = input("Youtube Link : ")
+        vid_id = vid_link.split('v=')[1]
+    
+        main_obj.download_from_id(vid_id)
+        ch = input("Do you want to continue?  (y/n)")
+        if ch == 'y' or ch == 'Y':
+            CONTINUE = True
+        else:
+            CONTINUE = False
+    print("Rerun the program to continue downloading more songs")
     
 
 if __name__ == '__main__':
