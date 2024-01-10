@@ -32,7 +32,7 @@ class music_management (Youtube_Toolkit, FileSystemEventHandler):
         # self.isDetected = False
 
         # Paths
-        self.source = self.src = r'C:\Users\Shiv\Music-downloader'
+        self.source = self.src = r'C:\Users\Shiv\dev\Music-downloader'
         self.destinaton  = None
         
 
